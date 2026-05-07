@@ -21,7 +21,7 @@ Kits are passed to `sbx run` (or `sbx create`) via `--kit`. The flag accepts a l
 The most common form is a git URL targeting this repo:
 
 ```console
-$ sbx run --kit "git+https://github.com/docker/sbx-kits-contrib.git#dir=code-server" claude
+$ sbx run --kit "git+https://github.com/docker/sbx-kits-contrib.git#dir=mixins/code-server" claude
 ```
 
 The fragment after `#` accepts two parameters, both optional:
@@ -64,8 +64,10 @@ $ sbx run --kit ./code-server/ claude
 
 | Kit | Description | Extends |
 | --- | --- | --- |
-| [`brew/`](./brew/) | Homebrew package manager for macOS and Linux | shell |
-| [`code-server/`](./code-server/) | Web VS Code with Claude Code extension | claude |
+| [`brew/`](./mixins/brew/) | Homebrew package manager for macOS and Linux | shell |
+| [`code-server/`](./mixins/code-server/) | Web VS Code with Claude Code extension | claude |
+| [`claude-model-runner/`](./mixins/claude-model-runner/) | Route Claude Code's Anthropic API calls to a local Docker Model Runner endpoint at host.docker.internal:12434. | claude |
+| [`zsh/`](./mixins/zsh/) | Zsh shell with default configuration | shell |
 
 ### Agents (standalone agent kits)
 
